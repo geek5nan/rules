@@ -1,0 +1,12 @@
+{
+    "version": 2,
+    "rules": [
+        {
+            "domain_suffix": [
+                "ipleak.net",
+                "brew.sh",
+                "rust-lang.org"
+            ]
+        }
+    ]
+}

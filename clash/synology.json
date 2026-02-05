@@ -1,0 +1,16 @@
+{
+    "version": 2,
+    "rules": [
+        {
+            "domain": [
+                "checkip.synology.com",
+                "checkipv6.synology.com",
+                "checkport.synology.com",
+                "ddns.synology.com",
+                "account.synology.com",
+                "checkipv6.quickconnect.to",
+                "global.quickconnect.to"
+            ]
+        }
+    ]
+}
