@@ -1,4 +1,5 @@
 DOMAIN,servd-anthropic-website.b-cdn.net
+DOMAIN-SUFFIX,datadoghq.com
 DOMAIN-SUFFIX,anthropic.com
 DOMAIN-SUFFIX,clau.de
 DOMAIN-SUFFIX,claude.ai
