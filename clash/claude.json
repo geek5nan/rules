@@ -1,0 +1,21 @@
+{
+  "rules": [
+    {
+      "domain_suffix": [
+        "datadoghq.com",
+        "anthropic.com",
+        "clau.de",
+        "claude.ai",
+        "claude.com",
+        "claudemcpclient.com",
+        "claudeusercontent.com",
+        "honeycomb.io",
+        "stripe.network"
+      ],
+      "domain_keyword": [
+          "datadoghq"
+      ]
+    }
+  ],
+  "version": 2
+}
