@@ -1,0 +1,39 @@
+name: Sync Surge Rules
+
+on:
+  schedule:
+    # Runs daily at 03:17 Asia/Singapore.
+    - cron: "17 19 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-surge-rules
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Update upstream Surge rules
+        run: bash scripts/update-surge-rules.sh
+
+      - name: Commit updated rules
+        run: |
+          if [[ -z "$(git status --porcelain -- public/surge/blackmatrix7)" ]]; then
+            echo "No upstream rule changes."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/surge/blackmatrix7
+          git commit -m "chore: sync upstream surge rules"
+          git push
