@@ -5,3 +5,7 @@
 /surge/custom/*
   Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=300, must-revalidate
+
+/icons/*
+  Content-Type: image/png
+  Cache-Control: public, max-age=86400, must-revalidate
