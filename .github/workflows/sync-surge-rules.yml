@@ -22,18 +22,18 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Update upstream Surge rules
+      - name: Update upstream Surge rules and generate ChinaMax shards
         run: bash scripts/update-surge-rules.sh
 
       - name: Commit updated rules
         run: |
-          if [[ -z "$(git status --porcelain -- public/surge/blackmatrix7)" ]]; then
+          if [[ -z "$(git status --porcelain -- public/surge/blackmatrix7 public/surge/xiaolai public/surge/custom/china_max)" ]]; then
             echo "No upstream rule changes."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/surge/blackmatrix7
+          git add public/surge/blackmatrix7 public/surge/xiaolai public/surge/custom/china_max
           git commit -m "chore: sync upstream surge rules"
           git push

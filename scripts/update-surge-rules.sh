@@ -84,4 +84,6 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaMax/ChinaMax_All.list|blackmatrix7/ChinaMax_All.list
 RULES
 
+bash "${ROOT_DIR}/scripts/split-china-max.sh"
+
 printf 'Done. Surge rules are updated in %s\n' "${SURGE_DIR}"
