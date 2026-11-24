@@ -11,16 +11,17 @@ ahead of broader game, proxy and China rules. Replace `YOUR_RULES_HOST` with
 your rules host and `Gamer` with your existing Steam policy.
 
 ```ini
-RULE-SET,https://YOUR_RULES_HOST/surge/custom/steam_cn.list,DIRECT
-RULE-SET,https://YOUR_RULES_HOST/surge/blackmatrix7/Steam.list,Gamer
+RULE-SET,https://YOUR_RULES_HOST/surge/custom/steam_cn.list,DIRECT,extended-matching
+RULE-SET,https://YOUR_RULES_HOST/surge/blackmatrix7/Steam.list,Gamer,extended-matching
 ```
 
 Steam China, Perfect World game domains and known mainland CDN hosts use
 DIRECT. The same policy covers Steam connection managers (`cm.steampowered.com`),
 server infrastructure (`steamserver.net`) and download caches (`steamcontent.com`).
 This includes overseas caches when Steam selects one. Store and Community
-continue to match the Steam rule. Connections made directly to an IP address
-follow the profile's IP rules.
+continue to match the Steam rule. With `extended-matching`, Surge can also
+match the TLS SNI or HTTP Host when a client connects by IP. The Steam CDN
+hosts `store.st.dl.eccdnx.com` and `media.st.dl.eccdnx.com` match the direct rule.
 
 The mainland list is maintained manually using the Steam entries in
 [schmidttt GameCN](https://github.com/schmidttt/surge-rules/blob/main/rules/GameCN/GameCN.list)
