@@ -4,6 +4,34 @@ The daily workflow downloads upstream rules into `public/surge/`, then generates
 ChinaMax shards before committing the published files. The original
 `blackmatrix7/ChinaMax_All.list` remains available.
 
+## Steam mainland China routing
+
+Add the first line immediately above your existing Steam rule in `[Rule]`,
+ahead of broader game, proxy and China rules. Replace `YOUR_RULES_HOST` with
+your rules host and `Gamer` with your existing Steam policy.
+
+```ini
+RULE-SET,https://YOUR_RULES_HOST/surge/custom/steam_cn.list,DIRECT
+RULE-SET,https://YOUR_RULES_HOST/surge/blackmatrix7/Steam.list,Gamer
+```
+
+Steam China, Perfect World game domains and known mainland CDN hosts use
+DIRECT. The same policy covers Steam connection managers (`cm.steampowered.com`),
+server infrastructure (`steamserver.net`) and download caches (`steamcontent.com`).
+This includes overseas caches when Steam selects one. Store and Community
+continue to match the Steam rule. Connections made directly to an IP address
+follow the profile's IP rules.
+
+The mainland list is maintained manually using the Steam entries in
+[schmidttt GameCN](https://github.com/schmidttt/surge-rules/blob/main/rules/GameCN/GameCN.list)
+and [v2fly steam](https://github.com/v2fly/domain-list-community/blob/master/data/steam).
+Two additional exact download hosts, `dl.steam.ksyna.com` and
+`steampipe.steamcontent.tnkjmec.com`, come from
+[ACL4SSR SteamCN](https://github.com/ACL4SSR/ACL4SSR/blob/master/Clash/Ruleset/SteamCN.list)
+and [blackmatrix7 SteamCN](https://github.com/blackmatrix7/ios_rule_script/blob/master/rule/Surge/SteamCN/SteamCN.list).
+The connection-manager and server rules also appear in
+[Aethersailor Steam_CDN](https://github.com/Aethersailor/Custom_OpenClash_Rules/blob/main/rule/Steam_CDN.list).
+
 ## ChinaMax on Apple TV
 
 `scripts/split-china-max.sh` copies the upstream file into **32 fixed URLs** under
